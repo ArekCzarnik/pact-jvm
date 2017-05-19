@@ -7,7 +7,6 @@ import au.com.dius.pact.model.Response
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import groovy.transform.Canonical
-import org.apache.commons.lang.StringUtils
 
 /**
  * Message in a Message Pact
@@ -99,6 +98,9 @@ class Message implements Interaction {
 
   @Override
   String uniqueKey() {
-    "${StringUtils.defaultIfEmpty(providerState, 'None')}_$description"
+    if (providerState?.trim()) {
+      return  'None' + description
+    }
+    return providerState +"_"+description
   }
 }
