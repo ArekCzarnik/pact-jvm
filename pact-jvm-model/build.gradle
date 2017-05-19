@@ -1,3 +1,2 @@
 dependencies {
-  testCompile "ch.qos.logback:logback-classic:${project.logbackVersion}"
 }

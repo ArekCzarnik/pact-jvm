@@ -4,7 +4,6 @@ import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
-import groovy.util.logging.Slf4j
 
 import java.util.jar.JarInputStream
 
@@ -12,7 +11,6 @@ import java.util.jar.JarInputStream
  * Base Pact class
  */
 @SuppressWarnings(['AbstractClassWithoutAbstractMethod', 'SpaceAroundMapEntryColon'])
-@Slf4j
 @ToString
 @EqualsAndHashCode(excludes = ['metadata'])
 abstract class BasePact implements Pact {
@@ -39,7 +37,7 @@ abstract class BasePact implements Pact {
         def jarStream = new JarInputStream(openStream)
         jarStream.manifest?.mainAttributes?.getValue('Implementation-Version') ?: ''
       } catch (e) {
-        log.warn('Could not load pact-jvm manifest', e)
+        println('Could not load pact-jvm manifest'+ e)
         ''
       } finally {
         openStream.close()
