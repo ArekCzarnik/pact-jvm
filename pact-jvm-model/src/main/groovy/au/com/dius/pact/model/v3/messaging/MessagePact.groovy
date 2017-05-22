@@ -34,7 +34,7 @@ class MessagePact extends V3Pact {
     def provider = Provider.fromMap(map.provider as Map)
     def messages = map.messages.collect { new Message().fromMap((Map) it) }
     def metadata = map.metadata as Map
-    new MessagePact(provider, consumer, messages, metadata)
+    new MessagePact(provider, consumer as Consumer, messages, metadata)
   }
 
   @Override

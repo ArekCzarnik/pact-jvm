@@ -6,7 +6,7 @@ import groovy.transform.Canonical
  * Interaction between a consumer and a provider
  */
 @Canonical
-class RequestResponseInteraction implements Interaction {
+public class RequestResponseInteraction implements Interaction {
 
   String description
   String providerState
